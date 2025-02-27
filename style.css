@@ -51,7 +51,7 @@ body {
 /* Make columns take full width on mobile */
 @media (max-width: 600px) {
     .column {
-        width: 100%;
+        width: 80%;
         flex: none;
         padding: 0;
     }
