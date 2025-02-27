@@ -44,10 +44,15 @@ jobs:
             npm run build
           fi
 
+      - name: Create deployment directory
+        run: |
+          mkdir -p public
+          cp dashboard.html public/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dashboard.html'
+          path: './public'
 
       - name: Deploy to GitHub Pages
         id: deployment
