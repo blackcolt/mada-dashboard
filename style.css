@@ -35,6 +35,7 @@ body {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 
 .column {
@@ -45,4 +46,13 @@ body {
     background: white;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Make columns take full width on mobile */
+@media (max-width: 600px) {
+    .column {
+        width: 100%;
+        flex: none;
+        padding: 0;
+    }
 }
