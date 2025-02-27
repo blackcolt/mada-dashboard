@@ -26,15 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (status) {
         sections.forEach(id => {
             const section = document.getElementById(id);
-            const parentDiv = section.closest(".status-container");
-            parentDiv.style.display = id === status ? "block" : "none";
+            section.closest(".status-container").style.display = id === status ? "block" : "none";
             section.style.display = "block"; // Ensure the section is open when using URL param
         });
     }
     sections.forEach(id => {
-        const section = document.getElementById(id);
         const storedState = localStorage.getItem(id);
-        section.style.display = storedState === null || storedState === "true" ? "block" : "none";
+        document.getElementById(id).style.display = storedState === null || storedState === "true" ? "block" : "none";
     });
-
 });
