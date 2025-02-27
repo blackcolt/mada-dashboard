@@ -143,7 +143,6 @@
 </div>
 
 <script>
-    // Auto-refresh the page every 10 seconds
     setTimeout(() => location.reload(), 30000);
 
     function toggleSection(id) {
@@ -153,31 +152,18 @@
         localStorage.setItem(id, !isVisible);
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        const status = urlParams.get("status");
-
-        const sections = {
-            "big": document.getElementById("big"),
-            "small": document.getElementById("small"),
-            "other": document.getElementById("other")
-        };
-
-        // Restore toggle states from localStorage
-        Object.keys(sections).forEach(id => {
-            const section = sections[id];
-            if (section) {
-                debugger
-                const storedState = localStorage.getItem(id);
-                const isOpen = storedState === null || storedState === "true"; // Default to true if null
-                section.style.display = isOpen ? "block" : "none";
-            }
+    document.addEventListener("DOMContentLoaded", () => {
+        const status = new URLSearchParams(window.location.search).get("status");
+        ["big-content", "small-content", "other-content"].forEach(id => {
+            const section = document.getElementById(id);
+            if (section) section.style.display = localStorage.getItem(id) !== "false" ? "block" : "none";
         });
 
-        // If there's a status query param, override visibility
-        if (status && sections[status]) {
-            Object.values(sections).forEach(section => section.style.display = "none");
-            sections[status].style.display = "block";
+        if (status) {
+            ["big-content", "small-content", "other-content"].forEach(id => {
+                document.getElementById(id).style.display = id === `${status}-content` ? "block" : "none";
+                localStorage.setItem(id, id === `${status}-content`);
+            });
         }
     });
 </script>
