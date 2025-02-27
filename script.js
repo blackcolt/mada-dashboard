@@ -1,3 +1,6 @@
+const urlParams = new URLSearchParams(window.location.search);
+const refreshRate = urlParams.get("r") ? parseInt(urlParams.get("r"), 10) : 10000;
+
 setInterval(() => document.querySelectorAll("iframe").forEach(iframe => {
     const parent = iframe.parentNode;
     const newIframe = document.createElement("iframe");
@@ -7,7 +10,7 @@ setInterval(() => document.querySelectorAll("iframe").forEach(iframe => {
     newIframe.scrolling = iframe.scrolling;
     newIframe.src = iframe.src; // Keep the original source
     parent.replaceChild(newIframe, iframe); // Replace the old iframe
-}), 20000);
+}), refreshRate);
 
 function toggleSection(id) {
     const section = document.getElementById(id);
@@ -17,14 +20,16 @@ function toggleSection(id) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const status = new URLSearchParams(window.location.search).get("status");
-    ["big-content", "small-content", "other-content"].forEach(id => {
-        const section = document.getElementById(id);
+    const status = urlParams.get("status");
+    const sectionContentIds = Array.from(document.getElementsByClassName('section-content'))
+        .map(element => element.id);
+    sectionContentIds.forEach(id => {
+        const section = document.getElementById(id.replace("-content", ""));
         if (section) section.style.display = localStorage.getItem(id) !== "false" ? "block" : "none";
     });
 
     if (status) {
-        ["big-content", "small-content", "other-content"].forEach(id => {
+        sectionContentIds.forEach(id => {
             document.getElementById(id).style.display = id === `${status}-content` ? "block" : "none";
             localStorage.setItem(id, (id === `${status}-content`).toString());
         });
