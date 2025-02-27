@@ -1,5 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search);
-const refreshRate = urlParams.get("r") ? parseInt(urlParams.get("r"), 10) : 10000;
+const refreshRate = urlParams.get("r") ? parseInt(urlParams.get("r"), 10) : 15000;
 
 setInterval(() => document.querySelectorAll("iframe").forEach(iframe => {
     const parent = iframe.parentNode;
@@ -8,30 +8,33 @@ setInterval(() => document.querySelectorAll("iframe").forEach(iframe => {
     newIframe.height = iframe.height;
     newIframe.frameBorder = iframe.frameBorder;
     newIframe.scrolling = iframe.scrolling;
-    newIframe.src = iframe.src; // Keep the original source
-    parent.replaceChild(newIframe, iframe); // Replace the old iframe
+    newIframe.src = iframe.src;
+    parent.replaceChild(newIframe, iframe);
 }), refreshRate);
 
 function toggleSection(id) {
     const section = document.getElementById(id);
-    const isVisible = section.style.display === "block";
+    const isVisible = section.style.display !== "none"; // Ensure it recognizes default state
     section.style.display = isVisible ? "none" : "block";
-    localStorage.setItem(id, (!isVisible).toString());
+    localStorage.setItem(id, !isVisible);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const status = urlParams.get("status");
-    const sectionContentIds = Array.from(document.getElementsByClassName('section-content'))
-        .map(element => element.id);
-    sectionContentIds.forEach(id => {
-        const section = document.getElementById(id.replace("-content", ""));
-        if (section) section.style.display = localStorage.getItem(id) !== "false" ? "block" : "none";
-    });
+    const sections = Array.from(document.getElementsByClassName("section-content")).map(el => el.id);
 
     if (status) {
-        sectionContentIds.forEach(id => {
-            document.getElementById(id).style.display = id === `${status}-content` ? "block" : "none";
-            localStorage.setItem(id, (id === `${status}-content`).toString());
+        sections.forEach(id => {
+            const section = document.getElementById(id);
+            const parentDiv = section.closest(".status-container");
+            parentDiv.style.display = id === status ? "block" : "none";
+            section.style.display = "block"; // Ensure the section is open when using URL param
         });
     }
+    sections.forEach(id => {
+        const section = document.getElementById(id);
+        const storedState = localStorage.getItem(id);
+        section.style.display = storedState === null || storedState === "true" ? "block" : "none";
+    });
+
 });
