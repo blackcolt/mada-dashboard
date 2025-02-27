@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Columns Layout</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .status-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .section-content {
+            display: block;
+            padding-top: 10px;
+        }
+
+        .section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+<div class="status-container" id="big">
+    <div class="title" onclick="toggleSection('bls-content')">אוהל גדול</div>
+    <div class="section-content" id="bls-content">
+        <section class="section">
+
+            <div class="column">
+                <iframe width="324" height="206" frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=1743686502&amp;format=interactive"></iframe>
+            </div>
+            <div class="column">
+                <iframe width="324" height="206" frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=1698276779&amp;format=interactive"></iframe>
+            </div>
+            <div class="column">
+                <iframe width="324" height="206" seamless frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=2090153914&amp;format=interactive"></iframe>
+            </div>
+        </section>
+        <section class="section">
+            <div class="column">
+                <iframe width="263" height="109" frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=313675151&amp;format=interactive"></iframe>
+            </div>
+            <div class="column">
+                <iframe width="267" height="114" frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=320227896&amp;format=interactive"></iframe>
+            </div>
+            <div class="column">
+                <iframe width="277" height="114" frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=230629172&amp;format=interactive"></iframe>
+            </div>
+        </section>
+        <section class="section">
+            <div class="column">
+                <iframe width="142" height="144" seamless frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=1688844988&amp;format=interactive"></iframe>
+            </div>
+            <div class="column">
+                <iframe width="142" height="144" seamless frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=1031151863&amp;format=interactive"></iframe>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<div class="status-container" id="small">
+    <div class="title" onclick="toggleSection('als-content')">אוהל קטן</div>
+    <div class="section-content" id="als-content">
+        <section class="section">
+            <div class="column">
+                <iframe width="391" height="243" seamless frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=2099812295&amp;format=interactive"></iframe>
+            </div>
+            <div class="column">
+                <iframe width="391" height="248" seamless frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=939742959&amp;format=interactive"></iframe>
+            </div>
+            <div class="column">
+                <iframe width="391" height="248" seamless frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=1406852699&amp;format=interactive"></iframe>
+            </div>
+        </section>
+        <section class="section">
+            <div class="column">
+                <iframe width="277" height="114" seamless frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=1048313600&amp;format=interactive"></iframe>
+            </div>
+            <div class="column">
+                <iframe width="277" height="114" seamless frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=1279777920&amp;format=interactive"></iframe>
+            </div>
+            <div class="column">
+                <iframe width="277" height="114" seamless frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=1665195689&amp;format=interactive"></iframe>
+            </div>
+        </section>
+        <section class="section">
+            <div class="column">
+                <iframe width="239" height="144" seamless frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=1953640120&amp;format=interactive"></iframe>
+            </div>
+            <div class="column">
+                <iframe width="239" height="144" seamless frameborder="0" scrolling="no"
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQMPJXHhrubY5wTSC7WEQN8sX3Z_uweLU0sapcV7cvBhNyggIwTNQsfbnNO3p2gXFjlAINXpthJmJGZ/pubchart?oid=1174444512&amp;format=interactive"></iframe>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="status-container" id="other">
+    <div class="title" onclick="toggleSection('other-content')">אחר</div>
+    <div class="section-content" id="other-content">
+        <section class="section">
+            <div class="column">OTHER Column 1</div>
+            <div class="column">OTHER Column 2</div>
+            <div class="column">OTHER Column 3</div>
+        </section>
+    </div>
+</div>
+
+<script>
+    function toggleSection(id) {
+        const section = document.getElementById(id);
+        section.style.display = section.style.display === "none" ? "block" : "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get("status");
+        const sections = {
+            "big": document.getElementById("big"),
+            "small": document.getElementById("small"),
+            "other": document.getElementById("other")
+        };
+        if (status && sections[status]) {
+            Object.values(sections).forEach(section => section.style.display = "none");
+            sections[status].style.display = "block";
+        }
+    });
+</script>
+</body>
+</html>
