@@ -47,7 +47,7 @@ jobs:
       - name: Create deployment directory
         run: |
           mkdir -p public
-          cp dashboard.html style.css public/
+          cp dashboard.html style.css script.js public/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
