@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.status-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    border-radius: 5px;
+}
+
+.section-content {
+    display: block;
+    padding-top: 10px;
+}
+
+.section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
