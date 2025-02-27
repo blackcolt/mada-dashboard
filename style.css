@@ -8,6 +8,19 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Ensure no elements cause horizontal overflow */
+.status-container,
+.section,
+.column {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Make sure iframes fit within the screen */
+iframe {
+    max-width: 100%;
+}
+
 .status-container {
     background: white;
     padding: 20px;
@@ -52,7 +65,7 @@ body {
 /* Make columns take full width on mobile */
 @media (max-width: 600px) {
     .column {
-        width: 80%;
+        width: 100%;
         flex: none;
         padding: 0;
     }
